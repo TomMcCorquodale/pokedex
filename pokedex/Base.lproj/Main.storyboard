@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PokemonFont.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,9 +28,36 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jol-0R-iPc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlH-XX-dgv">
+                                        <rect key="frame" x="77" y="16" width="220" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="0aj-ry-fpZ"/>
+                                            <constraint firstAttribute="height" constant="41" id="ytb-C0-d1c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXT-bv-kTD">
+                                        <rect key="frame" x="337" y="27" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="WdG-n6-m9Q"/>
+                                            <constraint firstAttribute="width" constant="30" id="YXZ-Qy-fdC"/>
+                                        </constraints>
+                                        <state key="normal" image="music.png"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXa-vd-eFz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.40784313725490196" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="YlH-XX-dgv" secondAttribute="bottom" constant="8" id="ARB-rE-R3Y"/>
                                     <constraint firstAttribute="height" constant="65" id="CJQ-Ok-ulF"/>
+                                    <constraint firstItem="YlH-XX-dgv" firstAttribute="centerX" secondItem="jol-0R-iPc" secondAttribute="centerX" id="YqK-Qj-hhb"/>
+                                    <constraint firstAttribute="bottom" secondItem="xXT-bv-kTD" secondAttribute="bottom" constant="8" id="iYp-Ph-26O"/>
+                                    <constraint firstAttribute="trailing" secondItem="xXT-bv-kTD" secondAttribute="trailing" constant="8" id="rbQ-UG-xV6"/>
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="WAu-iI-Yy4">
@@ -41,6 +73,7 @@
                             </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fi6-yd-qm0">
                                 <rect key="frame" x="20" y="129" width="335" height="518"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nhn-SD-WnX">
                                     <size key="itemSize" width="104" height="101"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -107,14 +140,18 @@
                             <constraint firstItem="91l-YZ-bQq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wOH-5I-VF0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="fi6-yd-qm0" id="3Y7-xA-bot"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="168.80000000000001" y="147.97601199400302"/>
         </scene>
     </scenes>
     <resources>
         <image name="1" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music.png" width="100" height="100"/>
     </resources>
 </document>
