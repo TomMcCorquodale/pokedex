@@ -21,6 +21,7 @@
 		F46E443D1EE8840000E648C2 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = F46E443C1EE8840000E648C2 /* pokemon.csv */; };
 		F46E44401EE885D800E648C2 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E443F1EE885D800E648C2 /* Pokemon.swift */; };
 		F46E44431EE8940800E648C2 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E44421EE8940800E648C2 /* PokeCell.swift */; };
+		F489591C1EEC703700936565 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F489591B1EEC703700936565 /* PokemonDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F46E443C1EE8840000E648C2 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pokemon.csv; path = "../../../Downloads/pokeapi-master/data/v1/pokemon.csv"; sourceTree = "<group>"; };
 		F46E443F1EE885D800E648C2 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		F46E44421EE8940800E648C2 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
+		F489591B1EEC703700936565 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				F46E44101EE87FE900E648C2 /* ViewController.swift */,
+				F489591B1EEC703700936565 /* PokemonDetailViewController.swift */,
 			);
 			name = Controller;
 			path = pokedex;
@@ -336,6 +339,7 @@
 			files = (
 				F46E44431EE8940800E648C2 /* PokeCell.swift in Sources */,
 				F46E44111EE87FE900E648C2 /* ViewController.swift in Sources */,
+				F489591C1EEC703700936565 /* PokemonDetailViewController.swift in Sources */,
 				F46E440F1EE87FE900E648C2 /* AppDelegate.swift in Sources */,
 				F46E44401EE885D800E648C2 /* Pokemon.swift in Sources */,
 				F4634BB71EEB381000F6D2F9 /* csv.swift in Sources */,

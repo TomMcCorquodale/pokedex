@@ -74,16 +74,12 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                 
                 pokemon.append(poke)
             }
-            
-            
-            
-            
+
         } catch let err as NSError {
             
             print(err.debugDescription)
         }
-        
-        
+   
     }
     
     
@@ -109,6 +105,19 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        
+        var poke: Pokemon!
+        
+        if inSearchMode {
+            
+            poke = filteredPokemon[indexPath.row]
+        } else {
+            
+            poke = pokemon[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "pokemonDetailVC", sender: poke)
         
     }
     
@@ -181,6 +190,19 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             collection.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pokemonDetailVC" {
+            
+            if let detailVC = segue.destination as? PokemonDetailViewController {
+                if let poke = sender as? Pokemon {
+                    detailVC.pokemon = poke 
+                }
+                
+            }
+        }
+    }
+    
     
 }
 
