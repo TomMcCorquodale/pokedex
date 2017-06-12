@@ -12,6 +12,7 @@ class PokemonDetailViewController: UIViewController {
     
     var pokemon: Pokemon!
     
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var mainImage: UIImageView!
     @IBOutlet var descripLabel: UILabel!
     @IBOutlet var typeLabel: UILabel!
@@ -27,8 +28,30 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameLabel.text = pokemon.name.capitalized
+        
+        mainImage.image = UIImage(named: "\(pokemon.pokedexId)")
+        currentEvoImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        
+        pokemon.downloadPokemonDetail {
+            self.updateUI()
+        }
 
     }
+    
+    func updateUI() {
+        
+        attackLabel.text = pokemon.attack
+        defenseLabel.text = pokemon.defense
+        heightLabel.text = pokemon.height
+        weightLabel.text = pokemon.weight
+        descripLabel.text = pokemon.description
+        typeLabel.text = pokemon.type
+        
+        
+    }
+    
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         
