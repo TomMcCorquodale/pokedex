@@ -21,6 +21,36 @@ class Pokemon {
     fileprivate var _attack: String!
     fileprivate var _nextEvoTxt: String!
     fileprivate var _pokemonURL: String!
+    fileprivate var _nextEvoName: String!
+    fileprivate var _nextEvoId: String!
+    fileprivate var _nextEvoLevel: String!
+    
+    var nextEvoName: String {
+        
+        if _nextEvoName == nil {
+            
+            _nextEvoName = " "
+        }
+        return _nextEvoName
+    }
+    
+    var nextEvoId: String {
+        
+        if _nextEvoId == nil {
+            
+            _nextEvoId = " "
+        }
+        return _nextEvoId
+    }
+    
+    var nextEvoLevel: String {
+        
+        if _nextEvoLevel == nil {
+            
+            _nextEvoLevel = " "
+        }
+        return _nextEvoLevel
+    }
     
     
     var nextEvoText: String {
@@ -158,13 +188,82 @@ class Pokemon {
                     
                     self._type = ""
                 }
+
+                if let descriptionArray = dict["descriptions"] as? [Dictionary<String,String>] , descriptionArray.count > 0 {
+       
+                    if let url = descriptionArray[0]["resource_uri"] {
+                        
+                        let combinedURL = URL(string: "\(BASE_URL)\(url)")
+                        
+                        Alamofire.request(combinedURL!).responseJSON(completionHandler: { (response) in
+                            
+                            if let descDict = response.value as? Dictionary<String, AnyObject> {
+                                
+                                if let description = descDict["description"] as? String {
+                                    
+                                    let newDescription = description.replacingOccurrences(of: "POKMON", with: "Pokemon")
+                                    
+                                    self._description = newDescription
+                                    
+                                    print(self._description)
+                                }
+                            }
+                            completed()
+                        })
+                        
+                    }
+                    
+                } else {
+                    
+                    self._description = ""
+                }
                 
-                
-                completed()
+                if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>] , evolutions.count > 0 {
+                    
+                    if let nextEvo = evolutions[0]["to"] as? String {
+                        if nextEvo.range(of: "mega") == nil {
+                            
+                            self._nextEvoName = nextEvo
+                            
+                            if let url = evolutions[0]["resource_uri"] as? String {
+                                print(url)
+                                
+                                let newStr = url.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+                                
+                                print(newStr)
+                                let nextEvoID = newStr.replacingOccurrences(of: "/", with: "")
+                                
+                                self._nextEvoId = nextEvoID
+                                
+                                
+                                if let lvlExist = evolutions[0]["level"] {
+                                    
+                                    if let lvl = lvlExist as? Int {
+                                        
+                                        self._nextEvoLevel = "\(lvl)"
+                 
+                                    }
+                                    
+                                } else {
+                                    
+                                    self._nextEvoLevel = ""
+                                       
+                                }
+                                
+                                
+                                
+                            }
+                            
+                            
+                        }
+                        
+                        
+                    }
+               
+            }
             }
             
-            
-            
+             completed()
         }
         
         
