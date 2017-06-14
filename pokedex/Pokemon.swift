@@ -29,7 +29,7 @@ class Pokemon {
         
         if _nextEvoName == nil {
             
-            _nextEvoName = " "
+            _nextEvoName = ""
         }
         return _nextEvoName
     }
@@ -38,7 +38,7 @@ class Pokemon {
         
         if _nextEvoId == nil {
             
-            _nextEvoId = " "
+            _nextEvoId = ""
         }
         return _nextEvoId
     }
@@ -47,7 +47,7 @@ class Pokemon {
         
         if _nextEvoLevel == nil {
             
-            _nextEvoLevel = " "
+            _nextEvoLevel = ""
         }
         return _nextEvoLevel
     }
@@ -66,7 +66,7 @@ class Pokemon {
         
         if _attack == nil {
             
-            _attack = " "
+            _attack = ""
         }
         return _attack
     }
@@ -93,7 +93,7 @@ class Pokemon {
         
         if _defense == nil {
             
-            _defense = " "
+            _defense = ""
         }
         return _defense
     }
